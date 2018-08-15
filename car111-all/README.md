@@ -5,9 +5,15 @@ SpeedThrill is a project on autonomous vehicles running in race environment. Thi
 
 - *car111*
 
+
+<img src="../../../wiki/car111_race0.gif" alt="car111" width="33%" />
+
+
+
 ***What's coming next?***
 
 - *car222*
+
 
 
 
