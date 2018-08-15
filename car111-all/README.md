@@ -5,6 +5,10 @@ SpeedThrill is a project on autonomous vehicles running in race environment. Thi
 
 - *car111*
 
+***What's coming next?***
+
+- *car222*
+
 
 
 ---
@@ -48,6 +52,8 @@ Here is a brief overview of things that you need to do to get *car111* running i
 
 ### 2.1 Set up TORCS
 First of all, you have to install [**torcs-1.3.7**](https://sourceforge.net/projects/torcs/files/all-in-one/1.3.7/) where *car111* would run. Check [TORCS homepage](http://torcs.sourceforge.net/) to learn more about TORCS. It has been tested with the so-far latest available stable version of **TORCS** -- **v1.3.7**. Previous version of TORCS might be able to run *car111* but all documents and wikipages would use **v1.3.7** as the reference version.
+
+You should also check *[car111 torcs-installation wiki](../../../wiki/installing-torcs)* for getting help with installing torcs.
 
 After successfully installing and running *torcs*, you would have following additional variables exported to your shell :
 
@@ -168,12 +174,13 @@ patch -p0 -i /path/to/patch/model_car7_trb1.patch
 
 
 ### 2.6 Run make targets
-After all setups, you have to compile the source files, link them together and install the entire module. This is done my running make targets `make` and `make install` in directory `car111`. Here are the steps :
+After all setups, you have to compile the source files, link them together and install the entire module. This is done by running make targets `make` and `make install` in directory `car111`. Here are the steps :
+
 - Move to `car111` directory in **torcs** source
 - Run `make` followed by `make install`
     - If there is an error then fix it and run `make clean` and re-run `make` and `make install`
 
-Here is the script version of the above steps :
+Here is the script version :
 ```sh
 # move to car111 directory
 cd $TORCS_BASE/src/drivers/car111
@@ -198,25 +205,33 @@ Start **torcs** by executing `torcs` in a shell. Press **Enter** if it is **TORC
 ## 3. Summary
 Here is a checklist of things that should have been done :
 
--[ ] Downloaded and installed **torcs-1.3.7**
+- [ ] Downloaded and installed **torcs-1.3.7**
 
--[ ] Downloaded and installed **fuzzylite-6.0**
+- [ ] Downloaded and installed **fuzzylite-6.0**
 
--[ ] Exported **FUZZYLITE\_HOME** and added it to library path
+- [ ] Exported **FUZZYLITE\_HOME** and added it to library path
 
--[ ] Copied `car111` to torcs source
+- [ ] Copied `car111` to torcs source
 
--[ ] Created links to source files inside `car111`
+- [ ] Created links to source files inside `car111`
 
--[ ] Installed car model **cg-nascar-rwd** or changed the car model to an existing one
+- [ ] Installed car model **cg-nascar-rwd** or changed the car model to an existing one
 
--[ ] Did run make targets (**make** and **make install**) inside `car111` without any error
+- [ ] Did run make targets (**make** and **make install**) inside `car111` without any error
 
--[ ] Did run *torcs* and selected *car111* in the list of cars
+- [ ] Did run *torcs* and selected *car111* in the list of cars
 
 
 
 ## 4. License
 This is licensed under [GNU GPL v3](LICENSE).
 
+
+
+## 5. Helpful Links
+- [TORCS Homepage](http://torcs.sourceforge.net)
+- [car111 torcs-installation wiki](../../../wiki/installing-torcs)
+- [TORCS v1.3.7](https://sourceforge.net/projects/torcs/files/all-in-one/1.3.7/)
+- [Fuzzylite v6.0](https://www.fuzzylite.com/downloads/)
+- [Torcs-cars nascar](https://sourceforge.net/projects/torcs/files/torcs-cars/1.3.0/)
 
