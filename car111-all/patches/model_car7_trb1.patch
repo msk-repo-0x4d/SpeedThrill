@@ -1,0 +1,13 @@
+--- src/drivers/car111/car111.xml	2018-06-24 00:00:00.000000000 +0000
++++ src/drivers/car111/car111_model_car7_trb1.xml	2018-06-24 00:00:00.000000000 +0000
+@@ -18,8 +18,8 @@
+ 	<attstr name="desc" val="Autonomous vehicle using fuzzy control"></attstr>
+ 	<attstr name="team" val=""></attstr>
+ 	<attstr name="author" val="M.S.K."></attstr>
+-	<attstr name="car name" val="cg-nascar-rwd"></attstr>
+-	<attstr name="category" val="Nascar"></attstr>
++	<attstr name="car name" val="car7-trb1"></attstr>
++	<attstr name="category" val="trb1"></attstr>
+ 	<attnum name="race number" val="0"></attnum>
+ 	<attnum name="red" val="1.0"></attnum>
+ 	<attnum name="green" val="1.0"></attnum>
