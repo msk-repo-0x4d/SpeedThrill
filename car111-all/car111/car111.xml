@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    file                 : car111.xml
+    description          : car111.xml file for module "car111".
+                           The skeleton of this file was originally generated
+                           from "robotgen" script that came with "torcs-1.3.7".
+    created              : 23 May 2018
+    copyright            : (C) 2018 M.S.K.
+    license              : GNU GPLv3
+-->
+
+<!DOCTYPE params SYSTEM "../../libs/tgf/params.dtd">
+<params name="car111" type="robotdef">
+  <section name="Robots">
+    <section name="index">
+      <section name="1">
+	<attstr name="name" val="car111"></attstr>
+	<attstr name="desc" val="Autonomous vehicle using fuzzy control"></attstr>
+	<attstr name="team" val=""></attstr>
+	<attstr name="author" val="M.S.K."></attstr>
+	<attstr name="car name" val="cg-nascar-rwd"></attstr>
+	<attstr name="category" val="Nascar"></attstr>
+	<attnum name="race number" val="0"></attnum>
+	<attnum name="red" val="1.0"></attnum>
+	<attnum name="green" val="1.0"></attnum>
+	<attnum name="blue" val="1.0"></attnum>
+      </section>
+    </section>
+  </section>
+</params>
