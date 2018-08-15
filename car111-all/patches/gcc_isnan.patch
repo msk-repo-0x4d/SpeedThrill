@@ -1,0 +1,16 @@
+*** src/drivers/olethros/geometry.cpp	2006-01-06 00:00:00.000000000 +0000
+--- src/drivers/olethros/geometry_isnan_fixed.cpp	2018-05-15 00:00:00.000000000 +0000
+***************
+*** 30,35 ****
+--- 30,40 ----
+  #endif
+  
+  
++ #if __cplusplus
++ 	using std::isnan;			// use isnan from std namespace
++ #endif
++ 
++ 
+  Vector::Vector(int N_, enum BoundsCheckingStatus check)
+  {
+  	
