@@ -1,0 +1,10 @@
+--- .torcs/config/raceman/quickrace.xml	2014-03-19 00:00:00.000000000 +0000
++++ .torcs/config/raceman/quickrace_no_display.xml	2018-07-12 00:00:00.000000000 +0000
+@@ -30,6 +30,7 @@
+     <attnum name="distance" unit="km" val="0"/>
+     <attstr name="type" val="race"/>
+     <attstr name="starting order" val="drivers list"/>
++    <attstr name="display mode" val="results only"/>
+     <attstr name="restart" val="yes"/>
+     <attnum name="laps" val="3"/>
+     <section name="Starting Grid">

@@ -1,0 +1,94 @@
+--- src/libs/raceengineclient/racemain.cpp	2014-05-22 00:00:00.000000000 +0000
++++ src/libs/raceengineclient/racemain_car222_training.cpp	2018-07-31 00:00:00.000000000 +0000
+@@ -39,6 +39,11 @@
+ #include "raceresults.h"
+ #include "racestate.h"
+ #include "racemanmenu.h"
++ 
++#ifdef TRAINING_MODE
++#include <unistd.h>
++#include "car222_race_config.h"
++#endif
+ 
+ #include "racemain.h"
+ 
+@@ -575,7 +580,48 @@
+ 		return RM_SYNC | RM_NEXT_RACE;
+ 	}
+ 
+-	return ReDisplayResults();
++    int return_value = ReDisplayResults();
++
++
++#if TRAINING_MODE
++
++    // if training is not complete continue to next race
++
++    // check if need more training
++    if(controller::training_race_counter <=
++            controller::LEARNING_PARAMETERS[controller::LEARNING_STAGES - 1][0])
++    {
++        // check if game should be paused
++        // resumes with human intervention ( key press )
++        if(controller::training_race_counter % TRAINING_PAUSE_COUNTER == 0)
++        {
++            // pause the game
++            return_value = RM_NEXT_STEP | RM_SYNC;
++        }
++        // check if need to take a break ( for a fixed duration )
++        // resumes after set duration
++        else if(controller::training_race_counter % TRAINING_BREAK_COUNTER == 0)
++        {
++            return_value = RM_NEXT_RACE | RM_SYNC;
++            // sleep for a fixed duration
++            sleep(TRAINING_BREAK_DURATION);
++        }
++        else // sleep for a short duration between each race
++        {
++            return_value = RM_NEXT_RACE | RM_SYNC;
++            // a short sleep
++            usleep(RACE_BREAK_DURATION);
++        }
++    }
++    else    // training is over
++    {
++        printf("training counter is %d, training is over so no more running races\n",
++                controller::training_race_counter);
++    }
++
++#endif
++
++    return return_value;
+ }
+ 
+ 
+--- src/libs/raceengineclient/Makefile	2013-01-12 00:00:00.000000000 +0000
++++ src/libs/raceengineclient/Makefile_car222_training	2018-07-31 00:00:00.000000000 +0000
+@@ -20,14 +20,16 @@
+ 
+ SOLIBDIR     = .
+ 
+-SOURCES      = singleplayer.cpp raceinit.cpp racemain.cpp racemanmenu.cpp racestate.cpp racegl.cpp \
+-	       raceengine.cpp raceresults.cpp
++SOURCES      = car222_Q_maps.cpp car222_race_init.cpp singleplayer.cpp raceinit.cpp\
++	           racemain.cpp racemanmenu.cpp racestate.cpp racegl.cpp \
++	           raceengine.cpp raceresults.cpp
+ 
+ SOLIBS      = -lracescreens -lrobottools
+ 
+ EXPDIR       = include
+ 
+-EXPORTS      = singleplayer.h raceinit.h
++EXPORTS      = car222_string_formats.h car222_Q_maps.h car222_race_config.h\
++	           singleplayer.h raceinit.h
+ 
+ SHIPDIR      = config
+ 
+@@ -44,3 +46,7 @@
+ 
+ 
+ include ${MAKE_DEFAULT}
++
++# append this flag for training mode
++CXXFLAGS       := $(CXXFLAGS) -DTRAINING_MODE
++
