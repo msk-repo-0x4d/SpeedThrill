@@ -1,0 +1,22 @@
+--- src/libs/raceengineclient/Makefile	2013-01-12 00:00:00.000000000 +0000
++++ src/libs/raceengineclient/Makefile_racemode	2018-09-05 00:00:00.000000000 +0000
+@@ -47,6 +47,6 @@
+ 
+ include ${MAKE_DEFAULT}
+ 
+-# append this flag for training mode
+-CXXFLAGS       := $(CXXFLAGS) -DTRAINING_MODE
++# append this flag for race mode
++CXXFLAGS       := $(CXXFLAGS) -DRACE_MODE
+ 
+--- src/drivers/car222/Makefile	2018-09-05 00:00:00.000000000 +0000
++++ src/drivers/car222/Makefile_racemode	2018-09-05 00:00:00.000000000 +0000
+@@ -31,6 +31,6 @@
+ INCFLAGS   := $(INCFLAGS) -I${FUZZYLITE_HOME}
+ LDFLAGS    := $(LDFLAGS) -L${FUZZYLITE_HOME}/release/bin -lfuzzylite
+ 
+-# append this flag for training mode
+-CFLAGSD    := $(CFLAGSD) -DTRAINING_MODE
++# append this flag for race mode
++CFLAGSD    := $(CFLAGSD) -DRACE_MODE
+ 
